@@ -1,0 +1,57 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+
+spring:
+  # 文件大小上传配置
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  profiles:
+    active: local
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: 0
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+# 需要验证码校验的接口路径 支持通配符
+captcha:
+  # 图片验证码验证
+  image:
+#    - /baobao-admin/login # 登录接口
+
+# 忽略鉴权url
+ignored:
+  urls:
+    - /baobao-admin/dictData/getByType/**
+    - /baobao-admin/common/**
+    - /baobao-admin/fix/**
+    - /baobao-admin/activity/**
+    - /baobao-admin/incident/**
+    - /baobao-admin/rel/**
+    - /**/*.js
+    - /**/*.css
+    - /**/*.png
+    - /**/*.ico
+    - /swagger-ui.html
+    - /swagger-resources/**
+    - /swagger/**
+
+# Mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+
+front:
+  htmlPath:
+
+migrate:
+  url:
+  dir:

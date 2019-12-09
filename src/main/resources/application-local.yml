@@ -1,0 +1,56 @@
+server:
+  port: 11111
+
+baobao:
+  platformType: MOEGO
+  envType: LOCAL
+  changeTime: true
+  redis:
+    master: node1:127.0.0.1:6379
+    slave: 127.0.0.1:6379
+  begin:
+    user: 1000000
+  track:
+    file: local/recording.properties
+    game: -1
+    client: -1
+  load:
+    platform: false
+  resource_url:
+  base_url:
+  server_urls:
+
+spring:
+  datasource:
+    dynamic:
+      primary: jdbc-admin #设置默认的数据源
+      datasource:
+        jdbc-admin:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://10.2.21.36:3306/mengshen?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: report
+          password: hoolai)(*123
+        jdbc-game:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://10.2.21.36:3306/report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: report
+          password: hoolai)(*123
+  kafka:
+    bootstrap-servers: 10.2.0.201:9090
+moego:
+  api_url: http://t.innerapp.moego.net
+front:
+  htmlPath: /data/nginx/nginxroot/bbshop/index.html
+# 配置文件上传位置以及nginx路径
+upload:
+  baseLocalPath: /opt/static/images/
+  baseNginxPath: http://10.2.21.37/images/
+  managerAvater:  # 管理台头像地址
+  childrenPaths: # 上传游戏内图片配置
+    - notice,公告
+    - assistance,社区
+    - banner,横幅
+    - avater,头像
+
+migrate:
+  url: http://10.2.0.201/player/fetch.sl
