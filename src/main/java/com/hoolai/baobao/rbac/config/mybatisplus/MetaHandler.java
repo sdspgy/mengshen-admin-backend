@@ -33,4 +33,8 @@ public class MetaHandler implements MetaObjectHandler {
 		this.setFieldValByName("updateTime", new Date(), metaObject);
 	}
 
+	public static void main(String[] args) {
+		Date date = new Date();
+		System.out.println(date);
+	}
 }

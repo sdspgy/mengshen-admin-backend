@@ -2,15 +2,13 @@ package com.hoolai.baobao.rbac.modules.game.controller;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.hoolai.baobao.rbac.common.exception.RbacException;
 import com.hoolai.baobao.rbac.common.utils.PageUtil;
 import com.hoolai.baobao.rbac.common.vo.PageVo;
 import com.hoolai.baobao.rbac.modules.game.entity.Game;
 import com.hoolai.baobao.rbac.modules.game.service.impl.GameServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -34,9 +32,25 @@ public class GameController {
 	@GetMapping("/game/queryAllGame")
 	public Object queryAllGame(@ModelAttribute Game game,
 					@ModelAttribute PageVo pageVo) {
-		log.info("-----------------执行----------queryAllGame----游戏信息------------------");
 		IPage<Game> gameGameIPage = gameService.selectGame(game, PageUtil.initMpPage(pageVo));
-		log.info("-----------------结束----------queryAllGame----游戏信息------------------");
 		return gameGameIPage;
+	}
+
+	@RequestMapping(value = "/game/addGame", method = RequestMethod.POST)
+	public Object addGame(@ModelAttribute Game game) {
+		return gameService.save(game);
+	}
+
+	@RequestMapping(value = "/game/updateGame", method = RequestMethod.POST)
+	public Object updateGame(@ModelAttribute Game game) {
+		return gameService.updateById(game);
+	}
+
+	@RequestMapping(value = "/game/delGameByIds/{ids}", method = RequestMethod.DELETE)
+	public Object delAdvertByIds(@PathVariable String[] ids) {
+		for (String id : ids) {
+			gameService.removeById(id);
+		}
+		throw new RbacException("批量通过id删除数据成功", true);
 	}
 }
