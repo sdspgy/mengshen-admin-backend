@@ -27,14 +27,14 @@ spring:
       datasource:
         jdbc-admin:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://10.2.21.36:3306/mengshen?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-          username: report
-          password: hoolai)(*123
+          url: jdbc:mysql://10.2.10.29:3306/mengshen?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: root
+          password: root
         jdbc-game:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://10.2.21.36:3306/report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-          username: report
-          password: hoolai)(*123
+          url: jdbc:mysql://10.2.10.29:3306/report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: root
+          password: root
   kafka:
     bootstrap-servers: 10.2.0.201:9090
 moego:
