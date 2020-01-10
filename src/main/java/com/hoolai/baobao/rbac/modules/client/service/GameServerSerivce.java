@@ -7,6 +7,6 @@ import com.hoolai.baobao.rbac.modules.client.entity.GameServer;
 
 public interface GameServerSerivce extends IService<GameServer> {
 
-	IPage<GameServer> selectCreative(GameServer gameServer, Page page);
+	IPage<GameServer> selectClient(GameServer gameServer, Page page);
 
 }

@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
 public class GameServerServiceImpl extends ServiceImpl<GameServerMapper, GameServer> implements GameServerSerivce {
 
 	@Override
-	public IPage<GameServer> selectCreative(GameServer gameServer, Page page) {
+	public IPage<GameServer> selectClient(GameServer gameServer, Page page) {
 		QueryWrapper<GameServer> queryWrapper = new QueryWrapper<>();
 		if (StringUtils.isNotEmpty(gameServer.getServerid())) {
 			queryWrapper.like("serverid", gameServer.getServerid());
