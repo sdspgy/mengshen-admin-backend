@@ -42,7 +42,7 @@ public class GameServerController {
 	public Object queryAllServer(@ModelAttribute GameServer gameserver,
 					@ModelAttribute PageVo pageVo) {
 		log.info("-----------------执行----------queryAllServer----分服信息------------------");
-		IPage<GameServer> gameServerIPage = gameserverService.selectCreative(gameserver, PageUtil.initMpPage(pageVo));
+		IPage<GameServer> gameServerIPage = gameserverService.selectClient(gameserver, PageUtil.initMpPage(pageVo));
 		IPage<Game> gameGameIPage = gameservice.selectGames(PageUtil.initMpPage(pageVo));
 		List<Object> list = Lists.newArrayList();
 		list.add(gameGameIPage);
