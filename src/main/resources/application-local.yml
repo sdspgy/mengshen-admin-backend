@@ -32,9 +32,9 @@ spring:
           password: root
         jdbc-game:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://10.2.10.29:3306/report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-          username: root
-          password: root
+          url: jdbc:mysql://10.2.21.36:3306/report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: report
+          password: hoolai)(*123
         jdbc-wxAdmin:
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://10.2.21.36:3306/report_manage?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
