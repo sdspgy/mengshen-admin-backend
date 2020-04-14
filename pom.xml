@@ -10,9 +10,13 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+    <groupId>com.baobao</groupId>
     <artifactId>report-admin-backend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <name>report-admin-backend</name>
     <description>admin</description>
+
+    <packaging>jar</packaging>
 
     <properties>
         <mybatis.generator.version>3.1.2</mybatis.generator.version>
